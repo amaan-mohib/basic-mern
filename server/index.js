@@ -32,7 +32,10 @@ app.use(
     secret: "secretcode",
     resave: true,
     saveUninitialized: true,
-    store: MongoStore.create(),
+    store: MongoStore.create({
+      mongoUrl: uri,
+      mongoOptions: { useNewUrlParser: true, useUnifiedTopology: true },
+    }),
   })
 );
 app.use(cookieParser("secretcode"));
