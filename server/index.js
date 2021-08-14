@@ -43,6 +43,10 @@ const post = require("./routes/post");
 app.use("/api", auth);
 app.use("/api/post", post);
 
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname + "/../build/index.html"));
+});
+
 app.listen(PORT, () => {
   console.log(`Server is running at http://localhost:${PORT}`);
 });
