@@ -87,7 +87,7 @@ const Comments = ({ id }) => {
           setTimeout(() => {
             setShow(false);
           }, 1500);
-          setData((d) => [...d, config]);
+          setData((d) => [config, ...d]);
         })
         .catch((err) => {
           console.error(err);
