@@ -5,6 +5,7 @@ const passport = require("passport");
 const cookieParser = require("cookie-parser");
 const session = require("express-session");
 const mongoose = require("mongoose");
+const MongoStore = require("connect-mongo");
 
 const app = express();
 
@@ -31,6 +32,7 @@ app.use(
     secret: "secretcode",
     resave: true,
     saveUninitialized: true,
+    store: MongoStore.create(),
   })
 );
 app.use(cookieParser("secretcode"));
